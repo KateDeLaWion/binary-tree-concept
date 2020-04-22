@@ -73,6 +73,23 @@ public class BinaryTree {
     }
 
 
+    // Find a node   function
+    public Node findNode(int key) {
+        Node focusNode = root;
+        while (focusNode.key != key) {
+            if (key < focusNode.key) {
+                focusNode = focusNode.leftChild;
+            } else {
+                focusNode = focusNode.rightChild;
+            }
+            if (focusNode == null){
+                return null;
+            }
+        }
+         return focusNode;
+    }
+
+
     // main function
     public static void main(String[] args) {
         BinaryTree theTree = new BinaryTree();
@@ -84,10 +101,13 @@ public class BinaryTree {
         theTree.addNode(85,"Salesman 1");
 
 //        theTree.inOrderTraverseTree(theTree.root);
-
-        theTree.preOrderTraverseTree(theTree.root);
+//
+//        theTree.preOrderTraverseTree(theTree.root);
 
 //        theTree.postOrderTraverseTree(theTree.root);
+
+        System.out.println("Search for 30");
+        System.out.println(theTree.findNode(30));
 
     }
 
